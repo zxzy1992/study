@@ -16,7 +16,7 @@ public class UserDaoImpl implements UserDao {
 	public void User(JSONObject jo) {
 		System.out.println(jo);
 		// TODO Auto-generated method stub
-		sqlSessionTemplate.insert("study.dao.insert", jo);
+		sqlSessionTemplate.insert("User.insert", jo);
 		
 	}
 
