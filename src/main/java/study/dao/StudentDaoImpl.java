@@ -1,22 +1,25 @@
 package study.dao;
 
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Repository
-public class UserDaoImpl implements UserDao {
+public class StudentDaoImpl implements StudentDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public JSONObject login() {
+	public JSONArray stuMessage() {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectOne("User.select");
+		JSONArray jo = JSONArray.fromObject(sqlSessionTemplate.selectList("StudentMessage.select"));
+		return jo;
 	}
+
+	
 
 }

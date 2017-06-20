@@ -4,5 +4,5 @@ import net.sf.json.JSONObject;
 
 public interface UserService {
 	
-	public String User(JSONObject jo);
+	public String login(JSONObject jo);
 }

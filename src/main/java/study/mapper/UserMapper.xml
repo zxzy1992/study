@@ -4,4 +4,8 @@
 	<insert id="insert" parameterType="net.sf.json.JSONObject">
 		insert into user (user_name,password, age) values (#{user},#{password},#{age})
 	</insert>
+	
+	<select id="select" resultType="net.sf.json.JSONObject">
+		select username, password, logintype from login 
+	</select>
 </mapper>

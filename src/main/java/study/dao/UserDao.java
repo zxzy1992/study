@@ -4,5 +4,5 @@ import net.sf.json.JSONObject;
 
 public interface UserDao {
 	
-	public void User(JSONObject jo);
+	public JSONObject login();
 }
