@@ -15,8 +15,37 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public JSONArray stuMessage() {
 		// TODO Auto-generated method stub
-		System.out.println( studentDao.stuMessage());
-		return  studentDao.stuMessage();
+		JSONArray stja = studentDao.subjectMessage();
+		
+		JSONArray ja = JSONArray.fromObject(studentDao.stuMessage());
+		
+		
+		for(int i = 0; i < ja.size(); i++){
+			JSONObject jo = (JSONObject)ja.get(i);
+			
+			for(int j = 0; j < stja.size();j++){
+				JSONObject stjo = (JSONObject)stja.get(j);
+				if(jo.get("subjectId").equals(stjo.get("subjectId"))){
+					jo.remove("subjectId");
+					jo.put("subjectId", stjo.get("name"));
+				}
+			}
+			
+			if(jo.get("sex").toString().equals("1")){
+				jo.remove("sex");
+				jo.put("sex", "男");
+			}else{
+				jo.remove("sex");
+				jo.put("sex", "女");
+			}
+			
+		}
+		
+		System.out.println(ja );
+		
+		
+		
+		return  ja;
 	}
 
 }

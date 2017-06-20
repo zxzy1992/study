@@ -18,23 +18,23 @@
 	}
 	#headerleft{
 		float:left;
-		width:20%;
-		height:20%;
+		width:15%;
+		height:15%;
 	}
 	#headerright{
 		float:right;
-		width:80%;
-		height:20%;
+		width:85%;
+		height:15%;
 	}
 	#left{
 		float:left;
-		width:20%;
-		height:80%;
+		width:15%;
+		height:85%;
 	}
 	#right{
 		float:right;
-		width:80%;
-		height:80%;
+		width:85%;
+		height:85%;
 	}
 	
 
