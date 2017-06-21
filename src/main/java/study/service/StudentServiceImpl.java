@@ -22,7 +22,10 @@ public class StudentServiceImpl implements StudentService {
 		
 		for(int i = 0; i < ja.size(); i++){
 			JSONObject jo = (JSONObject)ja.get(i);
-			
+			String bj = jo.getString("grade")+"年"+jo.getString("classId")+"班";
+			jo.remove("grade");
+			jo.remove("classId");
+			jo.accumulate("classId", bj);
 			for(int j = 0; j < stja.size();j++){
 				JSONObject stjo = (JSONObject)stja.get(j);
 				if(jo.get("subjectId").equals(stjo.get("subjectId"))){
