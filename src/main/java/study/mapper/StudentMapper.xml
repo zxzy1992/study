@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>    
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="StudentMessage">
-	<select id="select" resultType="net.sf.json.JSONObject">
-		select * from student
+	<select id="select" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
+		select * from student 
+		<where>
+			<if test="name !=null and name!= ''">
+				sname LIKE concat(concat('%',#{name}),'%')
+			</if>
+			<if	test="grade !=null and grade!=''">
+				and grade = #{grade}
+			</if>
+			<if test="classId!=null and classId!=''">
+				and classId = #{classId}
+			</if>
+			<if test="subjectId !=null and subjectId!= ''">
+				and subjectId LIKE concat(concat('%',#{subjectId}),'%')
+			</if>
+		</where>
+		
 	</select>
 	
-	<select id="selectSubject" resultType="net.sf.json.JSONObject">
-		select subjectId, name from subject
+	<insert id="insert" parameterType="net.sf.json.JSONObject">
+		insert into student (sname, sex, grade, classId, subjectId, phone, joindate, star_num, moon_num, sun_num, supersun_num)
+		values (#{sname}, #{sex}, #{grade},#{classId},#{subjectId},#{phone},#{joindate},#{star_num},#{moon_num},#{sun_num},#{supersun_num})
+	</insert>
+	
+	<delete id="delete" parameterType="net.sf.json.JSONObject">
+		delete from student where sname = #{sname}	
+	</delete>
+	
+	<select id="selectOne" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
+		select sname, sex, grade, classId, subjectId, phone, joindate from student
+		where sid = #{sid}
 	</select>
+	
+	<update id="update" parameterType="net.sf.json.JSONObject">
+		update student set sname = #{sname}, sex = #{sex}, grade=#{grade}, classId=#{classId}, subjectId=#{subjectId}, phone=#{phone}, joindate=#{joindate}
+		where sid = #{sid}
+	</update>
 </mapper>

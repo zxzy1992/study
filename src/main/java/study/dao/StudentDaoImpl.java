@@ -14,20 +14,33 @@ public class StudentDaoImpl implements StudentDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public JSONArray stuMessage() {
+	public JSONArray stuMessage(JSONObject jmsg) {
 		// TODO Auto-generated method stub
-		JSONArray jo = JSONArray.fromObject(sqlSessionTemplate.selectList("StudentMessage.select"));
-		System.out.println(jo);
+		JSONArray jo = JSONArray.fromObject(sqlSessionTemplate.selectList("StudentMessage.select", jmsg));
 		return jo;
 	}
 
 	@Override
-	public JSONArray subjectMessage() {
+	public void insertMessage(JSONObject jo) {
 		// TODO Auto-generated method stub
-		JSONArray jo = JSONArray.fromObject( sqlSessionTemplate.selectList("StudentMessage.selectSubject"));
-		return jo;
+		sqlSessionTemplate.insert("StudentMessage.insert", jo);
 	}
 
-	
+	@Override
+	public void deleteMessage(JSONObject jo) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.delete("StudentMessage.delete", jo);
+	}
 
+	@Override
+	public JSONObject selectMessage(JSONObject jo) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("StudentMessage.selectOne", jo);
+	}
+
+	@Override
+	public void updateMessage(JSONObject info) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.update("StudentMessage.update", info);
+	}
 }

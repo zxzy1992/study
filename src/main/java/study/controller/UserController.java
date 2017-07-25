@@ -61,4 +61,10 @@ public class UserController {
 		}
         return rt;
     }
+	
+	@RequestMapping(value="/exit", method = RequestMethod.GET)
+    public @ResponseBody String exit(@RequestParam("info") String info){
+		session.setAttribute("isLogin", false);
+		return "no";     
+    }
 }

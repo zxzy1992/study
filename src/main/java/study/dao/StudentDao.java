@@ -6,7 +6,14 @@ import net.sf.json.JSONObject;
 
 public interface StudentDao {
 	
-	public JSONArray stuMessage();
+	public JSONArray stuMessage(JSONObject jmsg);
 
-	public JSONArray subjectMessage();
+	public void insertMessage(JSONObject jo);
+
+	public void deleteMessage(JSONObject jo);
+
+	public JSONObject selectMessage(JSONObject jo);
+
+	public void updateMessage(JSONObject jo);
+
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CardMessage">
+	<select id="select" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
+		select * from student 
+		<where>
+			<if test= "name !=null and name!= ''">
+				sname LIKE concat(concat('%',#{name}),'%')
+			</if>	
+		</where>	
+	</select>
+	
+	<update id="insert" parameterType="net.sf.json.JSONObject">
+		update  student set star_num = #{star_num} where sid = #{sid}
+	</update>
+	
+	<select id="selectCard" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
+		select sname, sid, star_num, moon_num, sun_num, supersun_num from student
+		where sid = #{sid}
+	</select>
+	
+	<update id="updateCard" parameterType="net.sf.json.JSONObject">
+		update student set star_num = #{star_num}, moon_num = #{moon_num}, sun_num = #{sun_num}, supersun_num = #{supersun_num}
+		where sid = #{sid}
+	</update>
+</mapper>

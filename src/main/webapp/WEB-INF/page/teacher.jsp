@@ -14,6 +14,6 @@
 	<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 </head>
 <body>
-	123
+	敬请期待
 </body>
 </html>
