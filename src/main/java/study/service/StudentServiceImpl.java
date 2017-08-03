@@ -51,6 +51,7 @@ public class StudentServiceImpl implements StudentService {
 		jo.put("moon_num", "0");
 		jo.put("sun_num", "0");
 		jo.put("supersun_num", "0");
+		jo.put("bz", "无");
 		studentDao.insertMessage(jo);
 	}
 

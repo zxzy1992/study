@@ -21,8 +21,8 @@
 	</select>
 	
 	<insert id="insert" parameterType="net.sf.json.JSONObject">
-		insert into student (sname, sex, grade, classId, subjectId, phone, joindate, star_num, moon_num, sun_num, supersun_num)
-		values (#{sname}, #{sex}, #{grade},#{classId},#{subjectId},#{phone},#{joindate},#{star_num},#{moon_num},#{sun_num},#{supersun_num})
+		insert into student (sname, sex, grade, classId, subjectId, phone, joindate, star_num, moon_num, sun_num, supersun_num,bz)
+		values (#{sname}, #{sex}, #{grade},#{classId},#{subjectId},#{phone},#{joindate},#{star_num},#{moon_num},#{sun_num},#{supersun_num},#{bz})
 	</insert>
 	
 	<delete id="delete" parameterType="net.sf.json.JSONObject">

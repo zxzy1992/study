@@ -15,12 +15,12 @@
 	</update>
 	
 	<select id="selectCard" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
-		select sname, sid, star_num, moon_num, sun_num, supersun_num from student
+		select sname, sid, star_num, moon_num, sun_num, supersun_num,bz from student
 		where sid = #{sid}
 	</select>
 	
 	<update id="updateCard" parameterType="net.sf.json.JSONObject">
-		update student set star_num = #{star_num}, moon_num = #{moon_num}, sun_num = #{sun_num}, supersun_num = #{supersun_num}
+		update student set star_num = #{star_num}, moon_num = #{moon_num}, sun_num = #{sun_num}, supersun_num = #{supersun_num}, bz=#{bz}
 		where sid = #{sid}
 	</update>
 </mapper>

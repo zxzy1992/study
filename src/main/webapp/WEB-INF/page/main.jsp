@@ -17,6 +17,7 @@
 		height:100%;
 	}
 	#headerleft{
+		
 		float:left;
 		width:15%;
 		height:15%;
@@ -41,7 +42,7 @@
 
 </style>
 	
-	
+<link rel = "icon" href="http://localhost:8080/study/images/ico.png" type="image/text-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/kendo.common.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/kendo.rtl.min.css" rel="stylesheet" type="text/css" />
@@ -54,19 +55,21 @@
 </head>
 <body>
 	<div id="container">
-		<div id="headerleft">1</div>
+		<div id="headerleft"><img src="images/study.jpg" style="width:100%;height:100%"></div>
 		<div id="headerright" style="text-align: right;background-color:  #F0E68C" >
 			<button class="btn btn-danger" id="button" style="margin:5px"  onclick="exit()" >退&nbsp;出</button>
 		</div>
 		<div id="left" style="background-color: #BAE2EF">
 			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="studentMessage()">学生基本信息</button>
 			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="studentStudy()">星星卡统计情况</button>
-			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="teacherMessage()">教师信息</button>
+			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="teacherMessage()">奖品信息设置</button>
 			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="setting()">参数设置</button>
 		</div>
 		<div id="right">
 			
-			<iframe id="main"  style="width: 100%;height:100%;border:0px solid #000"></iframe>
+			<iframe id="main" src="unLogin" style="width: 100%;height:100%;border:0px solid #000">
+				
+			</iframe>
 		</div>
 	</div>
 
@@ -78,11 +81,11 @@
 	}
 	
 	function studentStudy(){
-		$("#main").attr("src", "study");
+		$("#main").attr("src", "card");
 	}
 	
 	function teacherMessage(){
-		$("#main").attr("src", "teacher");
+		$("#main").attr("src", "presentMessage");
 	}
 	
 	function setting(){

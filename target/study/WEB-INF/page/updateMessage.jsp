@@ -3,6 +3,12 @@
 <html>
 
 <head>
+<style>
+	body{
+		background-image: url(images/h.jpg);
+		background-size:cover;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -18,7 +24,7 @@
 </head>
 <body>
 	<div style="text-align: center"><font size="18">学员信息修改</font></div>
-	<div style="margin-top:50px;margin-left:50px;margin-right:50px;background-color: #BAE2EF" >
+	<div style="margin-top:50px;margin-left:50px;margin-right:50px;background-color: #BAE2EF;padding-top:20px;padding-bottom:20px" >
 		&nbsp;&nbsp;姓名：&nbsp;&nbsp;<input id="name" style="width:200px;margin-top:1px">
 		<br><br>
 		&nbsp;&nbsp;性别：&nbsp;&nbsp;<input id="dropDownList" >
@@ -56,7 +62,7 @@
 	});
 	
 	var w = window.location.search;
-	var s = w.substring(5, 6);
+	var s = w.substring(5, w.length);
 	
 	$(function(){
 		$.ajax({

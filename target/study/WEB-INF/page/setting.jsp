@@ -1,7 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <html>
-
+<style>
+	body{
+		background-image: url(images/h.jpg);
+		background-size:cover;
+	}
+</style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/kendo.common.min.css" rel="stylesheet" type="text/css" />

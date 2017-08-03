@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PresentMessage">
+	<select id="select" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
+		select * from present 
+		<where>
+			<if test= "name !=null and name!= ''">
+				cname LIKE concat(concat('%',#{name}),'%')
+			</if>	
+		</where>	
+	</select>
+	
+	<select id="selectDrop" resultType="net.sf.json.JSONObject">
+		select * from present
+	</select>
+	
+	<select id="selectByPname" parameterType="java.lang.String" resultType="java.lang.String">
+		select cname from present where pname = #{pname}
+	</select>
+	
+	<insert id="insert" parameterType="net.sf.json.JSONObject">
+		insert into present (cname, pname, value, kind) values (#{cname},#{pname}, #{value}, #{kind})
+	</insert>
+	
+	<delete id="delete" parameterType="net.sf.json.JSONObject">
+		delete from present where pid = #{pid}	
+	</delete>
+	
+	<update id="update" parameterType="net.sf.json.JSONObject">
+		update present set cname=#{cname}, pname=#{pname}, value=#{value}, kind=#{kind}
+		where pid = #{pid}
+	</update>
+	
+	<select id="selectMessage" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
+		select * from present where pid = #{pid}
+	</select>
+</mapper>

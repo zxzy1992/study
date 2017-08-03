@@ -24,7 +24,7 @@ public class CardController {
 	 */
 	@RequestMapping(value="/card", method = RequestMethod.POST)
 	public @ResponseBody JSONArray cardMessage(@RequestBody String msg){
-		
+		//System.out.println(cardService.cardMessage(msg));
 		return cardService.cardMessage(msg);
 	}
 	/**
@@ -76,9 +76,9 @@ public class CardController {
 	 */
 	@RequestMapping(value="/changeMoonCard/{bz}", method = RequestMethod.POST)
 	public @ResponseBody String changeMoonCard(@RequestParam("info") String info ,@PathVariable("bz") String b){
-		System.out.println(b);
 		JSONObject jo = JSONObject.fromObject(info);
-		jo.put("bz", b);
+
+		jo.put("co", b);
 		cardService.changeMoonCard(jo);
 		return "yes";
 	}
@@ -89,8 +89,8 @@ public class CardController {
 	 */
 	@RequestMapping(value="/prize", method = RequestMethod.POST)
 	public @ResponseBody String prize(@RequestParam("info") String info){
-		System.out.println(info);
 		JSONObject jo = JSONObject.fromObject(info);
+		System.out.println(jo);
 		cardService.exchange(jo);
 		return "yes";
 	}

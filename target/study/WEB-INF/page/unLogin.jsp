@@ -3,6 +3,12 @@
 <html>
 <title>思大迪教育</title>
 <head>
+<style>
+	body{
+		background-image: url(images/hi.jpg);
+		background-size:cover;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/kendo.common.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/kendo.rtl.min.css" rel="stylesheet" type="text/css" />
@@ -14,6 +20,6 @@
 	<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 </head>
 <body>
-	想进系统得有钥匙~~~
+	
 </body>
 </html>

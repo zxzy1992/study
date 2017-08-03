@@ -3,6 +3,12 @@
 <html>
 
 <head>
+<style>
+	body{
+		background-image: url(images/h.jpg);
+		background-size:cover;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -67,7 +73,7 @@
 				}
 			}
 		},
-		pageSize :　10,
+		pageSize :　15,
 	});
 		
 	var grid = $("#grid").kendoGrid({

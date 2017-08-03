@@ -61,12 +61,14 @@
 		<div id="left" style="background-color: #BAE2EF">
 			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="studentMessage()">学生基本信息</button>
 			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="studentStudy()">星星卡统计情况</button>
-			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="teacherMessage()">教师信息</button>
+			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="teacherMessage()">奖品信息设置</button>
 			<button style="width: 100%;height:50px;border:0px solid #000;background-color: #BAE2EF" onclick="setting()">参数设置</button>
 		</div>
 		<div id="right">
 			
-			<iframe id="main"  style="width: 100%;height:100%;border:0px solid #000"></iframe>
+			<iframe id="main" src="unLogin" style="width: 100%;height:100%;border:0px solid #000">
+				
+			</iframe>
 		</div>
 	</div>
 
@@ -78,11 +80,11 @@
 	}
 	
 	function studentStudy(){
-		$("#main").attr("src", "study");
+		$("#main").attr("src", "card");
 	}
 	
 	function teacherMessage(){
-		$("#main").attr("src", "teacher");
+		$("#main").attr("src", "presentMessage");
 	}
 	
 	function setting(){

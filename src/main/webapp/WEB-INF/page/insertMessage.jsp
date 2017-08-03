@@ -3,6 +3,12 @@
 <html>
 
 <head>
+<style>
+	body{
+		background-image: url(images/h.jpg);
+		background-size:cover;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -38,6 +44,7 @@
 	</div>
 	<div style="width: 100%;text-align: right;padding-right:10px;margin-top:20px;margin-left:5px">
 			<button id="insert" class="btn btn-info" onclick="insert()" >提&nbsp;交</button>
+			<button id="return" class="btn btn-info"  >返&nbsp;回</button>
 	</div>
 </body>
 <script>
@@ -51,6 +58,7 @@ $("#dropDownList").kendoDropDownList({
 });
 
 $("#datepicker").kendoDatePicker({
+	culture : "zh-CN",
 	format : "yyyy-MM-dd"
 });
 
@@ -91,6 +99,9 @@ function insert(){
 	
 }
 
+$("#return").click(function(){
+	window.location.href="./message";
+})
 
 </script>
 </html>

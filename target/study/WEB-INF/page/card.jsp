@@ -3,6 +3,12 @@
 <html>
 
 <head>
+<style>
+	body{
+		background-image: url(images/h.jpg);
+		background-size:cover;
+	}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -58,7 +64,7 @@ var data = new kendo.data.DataSource({
 			}
 		}
 	},
-	pageSize :　10,
+	pageSize :　15,
 });
 	
 var grid = $("#grid").kendoGrid({
@@ -82,22 +88,27 @@ var grid = $("#grid").kendoGrid({
 		{
 			title : "星星卡数",
 			field : "star_num",
-			width : "120"
+			width : "40"
 		},
 		{
 			title : "月亮卡数",
 			field : "moon_num",
-			width : "120"
+			width : "40"
 		},
 		{
 			title : "太阳卡数",
 			field : "sun_num",
-			width : "120"
+			width : "40"
 		},
 		{
 			title : "超级太阳卡数",
 			field : "supersun_num",
-			width : "120"
+			width : "40"
+		},
+		{
+			title : "兑换奖品",
+			field : "bz",
+			width : "300"
 		}
 	],
 	change :function(e){
