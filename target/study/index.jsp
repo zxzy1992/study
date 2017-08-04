@@ -50,7 +50,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 
 
-	
+	<link rel = "icon" href="http://localhost:8080/study/images/ico.png" type="image/text-icon">
 	<link href="css/kendo.common.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/kendo.rtl.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/kendo.silver.min.css" rel="stylesheet" type="text/css" />

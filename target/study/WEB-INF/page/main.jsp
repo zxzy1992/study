@@ -17,6 +17,7 @@
 		height:100%;
 	}
 	#headerleft{
+		
 		float:left;
 		width:15%;
 		height:15%;
@@ -41,7 +42,7 @@
 
 </style>
 	
-	
+<link rel = "icon" href="http://localhost:8080/study/images/ico.png" type="image/text-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/kendo.common.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/kendo.rtl.min.css" rel="stylesheet" type="text/css" />
@@ -54,7 +55,7 @@
 </head>
 <body>
 	<div id="container">
-		<div id="headerleft">1</div>
+		<div id="headerleft"><img src="images/study.jpg" style="width:100%;height:100%"></div>
 		<div id="headerright" style="text-align: right;background-color:  #F0E68C" >
 			<button class="btn btn-danger" id="button" style="margin:5px"  onclick="exit()" >退&nbsp;出</button>
 		</div>

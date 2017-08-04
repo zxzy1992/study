@@ -83,6 +83,11 @@ var grid = $("#grid").kendoGrid({
 			width : "200"
 		},
 		{
+			title : "奖品数量",
+			field : "num",
+			width : "100"
+		},
+		{
 			title : "兑换卡种类",
 			field : "kind",
 			width : "120"
@@ -96,7 +101,7 @@ var grid = $("#grid").kendoGrid({
 	],
 	change :function(e){
 		 var selectedItem = this.dataItem(this.select());
-		 con = {pid:selectedItem.pid, cname:selectedItem.cname,pname:selectedItem.pname,value:selectedItem.value,kind:selectedItem.kind};
+		 con = {pid:selectedItem.pid, cname:selectedItem.cname,pname:selectedItem.pname,num:selectedItem.num,value:selectedItem.value,kind:selectedItem.kind};
 	},
 	sortable: true,
     pageable: true,

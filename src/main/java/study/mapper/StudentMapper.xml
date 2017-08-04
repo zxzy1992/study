@@ -17,12 +17,12 @@
 				and subjectId LIKE concat(concat('%',#{subjectId}),'%')
 			</if>
 		</where>
-		
+		 ORDER BY sid ASC
 	</select>
 	
 	<insert id="insert" parameterType="net.sf.json.JSONObject">
-		insert into student (sname, sex, grade, classId, subjectId, phone, joindate, star_num, moon_num, sun_num, supersun_num,bz)
-		values (#{sname}, #{sex}, #{grade},#{classId},#{subjectId},#{phone},#{joindate},#{star_num},#{moon_num},#{sun_num},#{supersun_num},#{bz})
+		insert into student (sname, sex, grade, classId, subjectId, phone, joindate, star_num, moon_num, sun_num, supersun_num,bz,ondate,offdate)
+		values (#{sname}, #{sex}, #{grade},#{classId},#{subjectId},#{phone},#{joindate},#{star_num},#{moon_num},#{sun_num},#{supersun_num},#{bz},#{ondate},#{offdate})
 	</insert>
 	
 	<delete id="delete" parameterType="net.sf.json.JSONObject">
@@ -30,12 +30,12 @@
 	</delete>
 	
 	<select id="selectOne" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
-		select sname, sex, grade, classId, subjectId, phone, joindate from student
+		select sname, sex, grade, classId, subjectId, phone, joindate,ondate,offdate from student
 		where sid = #{sid}
 	</select>
 	
 	<update id="update" parameterType="net.sf.json.JSONObject">
-		update student set sname = #{sname}, sex = #{sex}, grade=#{grade}, classId=#{classId}, subjectId=#{subjectId}, phone=#{phone}, joindate=#{joindate}
+		update student set sname = #{sname}, sex = #{sex}, grade=#{grade}, classId=#{classId}, subjectId=#{subjectId}, phone=#{phone}, joindate=#{joindate},ondate=#{ondate},offdate=#{offdate}
 		where sid = #{sid}
 	</update>
 </mapper>

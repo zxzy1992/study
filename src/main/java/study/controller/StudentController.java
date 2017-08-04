@@ -33,6 +33,7 @@ public class StudentController {
 	 */
 	@RequestMapping(value="/insertMessage", method = RequestMethod.POST)
 	public @ResponseBody String InsertMessage(@RequestParam("info") String info){
+		System.out.println(info);
 		studentService.InsertMessage(info);
 		return "yes";
 	}
@@ -55,7 +56,6 @@ public class StudentController {
 	 */
 	@RequestMapping(value="/selectMessage", method = RequestMethod.POST)
 	public @ResponseBody JSONObject selectMessage(@RequestParam("info") String info){
-		System.out.println(info);
 		return studentService.selectMessage(info);
 	}
 	/**

@@ -41,6 +41,11 @@
 		<label for="T">托管班</label>&nbsp;<input name="sub" type="checkbox"  id="T" value="托管班" style="width:15px;height:15px">
 		<br><br>
 		&nbsp;&nbsp;入学时间：<input id="datepicker" />
+		<br><br>
+		&nbsp;&nbsp;缴费时间：<input id="datepicker1" />
+		<br><br>
+		&nbsp;&nbsp;到费时间：<input id="datepicker2" />
+		<br><br>
 	</div>
 	<div style="width: 100%;text-align: right;padding-right:10px;margin-top:20px;margin-left:5px">
 			<button id="sure" class="btn btn-info"  >确&nbsp;定</button>
@@ -58,6 +63,14 @@
 	});
 	
 	$("#datepicker").kendoDatePicker({
+		format : "yyyy-MM-dd"
+	});
+	
+	$("#datepicker1").kendoDatePicker({
+		format : "yyyy-MM-dd"
+	});
+	
+	$("#datepicker2").kendoDatePicker({
 		format : "yyyy-MM-dd"
 	});
 	
@@ -79,7 +92,8 @@
 				$("#grade").val(d.grade);
 				$("#classId").val(d.classId);
 				$("#datepicker").data("kendoDatePicker").value(d.joindate);
-				
+				$("#datepicker1").data("kendoDatePicker").value(d.ondate);
+				$("#datepicker2").data("kendoDatePicker").value(d.offdate);
 				var c = d.subjectId;
 				var arr = new Array();
 				arr = c.split("，");
@@ -103,6 +117,10 @@
 	});
 	
 	$("#sure").click(function(){
+		
+		var date1 = "";   //报名时间
+		var date2 = "";   //缴费时间
+		var date3 = "";   //到费时间
 		var arr = [];
 		var subject ="";
 		var name = $("#name").val();
@@ -111,6 +129,11 @@
 		var classId = $("#classId").val();
 		var phone = $("#phone").val();
 		var datepicker = $("#datepicker").data("kendoDatePicker").value();
+		var datepicker1 = $("#datepicker1").data("kendoDatePicker").value();
+		var datepicker2 = $("#datepicker2").data("kendoDatePicker").value();
+		var day = new Date(datepicker);
+		var day1 = new Date(datepicker1);
+		var day2 = new Date(datepicker2);
 		
 		$('input[name="sub"]:checked').each(function(){
 			arr.push($(this).val());
@@ -122,11 +145,41 @@
 		
 		subject = subject.substring(0, subject.length-1);
 		
+		if(day.getMonth() < 10){
+			if(day.getDate() < 10){
+				date1 = day.getFullYear()+"-0"+(day.getMonth()+1)+"-0"+day.getDate();
+			}else{
+				date1 = day.getFullYear()+"-0"+(day.getMonth()+1)+"-"+day.getDate();
+			}
+		}else{
+			date1 = day.getFullYear()+"-"+(day.getMonth()+1)+"-"+day.getDate();
+		}
+		
+		if(day1.getMonth() < 10){
+			if(day1.getDate() < 10){
+				date2 = day1.getFullYear()+"-0"+(day1.getMonth()+1)+"-0"+day1.getDate();
+			}else{
+				date2 = day1.getFullYear()+"-0"+(day1.getMonth()+1)+"-"+day1.getDate();
+			}
+		}else{
+			date2 = day1.getFullYear()+"-"+(day1.getMonth()+1)+"-"+day1.getDate();
+		}
+		
+		if(day2.getMonth() < 10){
+			if(day2.getDate() < 10){
+				date3 = day2.getFullYear()+"-0"+(day2.getMonth()+1)+"-0"+day2.getDate();
+			}else{
+				date3 = day2.getFullYear()+"-0"+(day2.getMonth()+1)+"-"+day2.getDate();
+			}
+		}else{
+			date3 = day2.getFullYear()+"-"+(day2.getMonth()+1)+"-"+day2.getDate();
+		}
+		
 		$.ajax({
 			type : "POST",
 			url : "${pageContext.request.contextPath}/updateMessage",
 			dataType:'text',
-			data : {info: JSON.stringify({sid:s,sname:name,sex:sex,grade:grade,classId:classId,phone:phone,joindate:datepicker,subjectId:subject})},
+			data : {info: JSON.stringify({sid:s,sname:name,sex:sex,grade:grade,classId:classId,phone:phone,joindate:date1,subjectId:subject,ondate:date2,offdate:date3})},
 			success : function(d){
 				alert("修改成功！");			
 			},

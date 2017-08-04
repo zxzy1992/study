@@ -8,6 +8,7 @@
 				sname LIKE concat(concat('%',#{name}),'%')
 			</if>	
 		</where>	
+		 ORDER BY  sid ASC
 	</select>
 	
 	<update id="insert" parameterType="net.sf.json.JSONObject">

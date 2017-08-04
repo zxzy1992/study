@@ -119,6 +119,16 @@
 				field : "joindate",
 				width : "120"
 			},
+			{
+				title : "交费时间",
+				field : "ondate",
+				width : "120"
+			},
+			{
+				title : "到费时间",
+				field : "offdate",
+				width : "120"
+			},
 		],
 		change :function(e){
 			 var selectedItem = this.dataItem(this.select());

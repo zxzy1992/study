@@ -43,15 +43,14 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		
 		JSONObject jo = JSONObject.fromObject(info);
-		String joindate = jo.get("joindate").toString().substring(0, 10);
-		jo.remove("joindate");
-		jo.put("joindate", joindate);
+		System.out.println("!!!"+jo);
 		jo.put("sname", jo.get("sname"));
 		jo.put("star_num", "0");
 		jo.put("moon_num", "0");
 		jo.put("sun_num", "0");
 		jo.put("supersun_num", "0");
 		jo.put("bz", "无");
+
 		studentDao.insertMessage(jo);
 	}
 
@@ -74,9 +73,6 @@ public class StudentServiceImpl implements StudentService {
 	public void updateMessage(String info) {
 		// TODO Auto-generated method stub
 		JSONObject jo = JSONObject.fromObject(info);
-		String joindate = jo.get("joindate").toString().substring(0, 10);
-		jo.remove("joindate");
-		jo.put("joindate", joindate);
 		studentDao.updateMessage(jo);	
 	}
 }

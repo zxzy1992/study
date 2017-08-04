@@ -19,4 +19,8 @@ public interface PresentDao {
 
 	public JSONObject selectPresent(JSONObject jo);
 
+	public JSONObject selectPresentByPname(JSONObject jo);
+
+	public void updatePresentByPname(JSONObject pnum);
+
 }

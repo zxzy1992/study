@@ -49,5 +49,15 @@ public class PresentDaoImpl implements PresentDao {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("PresentMessage.selectMessage", jo);
 	}
+	@Override
+	public JSONObject selectPresentByPname(JSONObject jo) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("PresentMessage.selectMessageByPname", jo);
+	}
+	@Override
+	public void updatePresentByPname(JSONObject pnum) {
+		// TODO Auto-generated method stub
+		sqlSessionTemplate.update("PresentMessage.updateMessageByPname", pnum);
+	}
 
 }

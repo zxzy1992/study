@@ -29,6 +29,8 @@
 		<br><br>
 		&nbsp;&nbsp;奖品名称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="cname" style="width:200px;margin-top:1px">
 		<br><br>
+		&nbsp;&nbsp;奖品数量：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="num" style="width:50px" >
+		<br><br>
 		&nbsp;&nbsp;兑换卡种类：&nbsp;&nbsp;<input id="kind" style="width:165px;" >
 		<br><br>
 		&nbsp;&nbsp;兑换卡数量：&nbsp;&nbsp;<input id="value" style="width:50px" >
@@ -55,6 +57,7 @@ $(function(){
 			$("#cname").val(d.cname);	
 			$("#pname").val(d.pname);
 			$("#value").val(d.value);
+			$("#num").val(d.num);
 			$("#kind").val(d.kind);
 		}
 	})
@@ -63,6 +66,7 @@ $(function(){
 $("#insert").click(function(){
 	var cname = $("#cname").val();	
 	var pname = $("#pname").val();
+	var num = $("#num").val();
 	var value = $("#value").val();
 	var kind = $("#kind").val();
 	
@@ -70,7 +74,7 @@ $("#insert").click(function(){
 		type : "POST",
 		url : "${pageContext.request.contextPath}/updatePresent",
 		dataType:'text',
-		data : {info: JSON.stringify({pid:s,cname:cname,pname:pname,value:value,kind:kind})},
+		data : {info: JSON.stringify({pid:s,cname:cname,pname:pname,num:num,value:value,kind:kind})},
 		success : function(d){
 			alert("修改成功！");			
 		},

@@ -7,7 +7,7 @@
 			<if test= "name !=null and name!= ''">
 				cname LIKE concat(concat('%',#{name}),'%')
 			</if>	
-		</where>	
+		</where>	 ORDER BY pname ASC
 	</select>
 	
 	<select id="selectDrop" resultType="net.sf.json.JSONObject">
@@ -19,7 +19,7 @@
 	</select>
 	
 	<insert id="insert" parameterType="net.sf.json.JSONObject">
-		insert into present (cname, pname, value, kind) values (#{cname},#{pname}, #{value}, #{kind})
+		insert into present (cname, pname,num, value, kind) values (#{cname},#{pname},#{num}, #{value}, #{kind})
 	</insert>
 	
 	<delete id="delete" parameterType="net.sf.json.JSONObject">
@@ -27,11 +27,20 @@
 	</delete>
 	
 	<update id="update" parameterType="net.sf.json.JSONObject">
-		update present set cname=#{cname}, pname=#{pname}, value=#{value}, kind=#{kind}
+		update present set cname=#{cname}, pname=#{pname},num=#{num} ,value=#{value}, kind=#{kind}
 		where pid = #{pid}
 	</update>
 	
 	<select id="selectMessage" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
 		select * from present where pid = #{pid}
 	</select>
+	
+	<select id="selectMessageByPname" parameterType="net.sf.json.JSONObject" resultType="net.sf.json.JSONObject">
+		select pname, num from present where pname = #{pname}
+	</select>
+	
+	<update id="updateMessageByPname" parameterType="net.sf.json.JSONObject">
+		update present set num=#{num}
+		where pname = #{pname}
+	</update>
 </mapper>

@@ -93,6 +93,7 @@ public class CardServiceImpl implements CardService {
 	@Override
 	public void exchange(JSONObject jo) {
 		// TODO Auto-generated method stub
+		Integer numByPname;
 		String ress = "";																			
 		String kind = jo.getString("pname").substring(0,1);	//取pname代码第1位，即表示兑换卡的类型
 		String num = jo.getString("pname").substring(1,3);	//取pname代码第2、3位，即表示兑换卡的数量
@@ -110,6 +111,11 @@ public class CardServiceImpl implements CardService {
 				joc.replace("sun_num", (joc.getInt("sun_num")- sun));
 			}
 			cardDao.updateCard(joc);
+			JSONObject pnum = presentDao.selectPresentByPname(jo);
+			numByPname = pnum.getInt("num") - 1;
+			pnum.remove("num");
+			pnum.put("num", numByPname);
+			presentDao.updatePresentByPname(pnum);
 		}else if(liwu.contains(",") == false){
 			if(liwu.substring(0, 5).equals(jo.getString("pname"))){
 				int temp = Integer.parseInt(liwu);
@@ -136,6 +142,11 @@ public class CardServiceImpl implements CardService {
 				}
 			}
 			cardDao.updateCard(joc);
+			JSONObject pnum = presentDao.selectPresentByPname(jo);
+			numByPname = pnum.getInt("num") - 1;
+			pnum.remove("num");
+			pnum.put("num", numByPname);
+			presentDao.updatePresentByPname(pnum);
 		}else if(liwu.contains(",") == true){
 			String[] res = liwu.split(",");
 			for(int i = 0;i < res.length; i++){
@@ -172,6 +183,11 @@ public class CardServiceImpl implements CardService {
 				joc.put("bz", ress.substring(0,ress.length()-1));
 			}
 			cardDao.updateCard(joc);
+			JSONObject pnum = presentDao.selectPresentByPname(jo);
+			numByPname = pnum.getInt("num") - 1;
+			pnum.remove("num");
+			pnum.put("num", numByPname);
+			presentDao.updatePresentByPname(pnum);
 		}
 		
 	}

@@ -29,10 +29,13 @@
 		<br><br>
 		&nbsp;&nbsp;奖品名称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="cname" style="width:200px;margin-top:1px">
 		<br><br>
+		&nbsp;&nbsp;奖品数量：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="num" style="width:50px" >
+		<br><br>
 		&nbsp;&nbsp;兑换卡种类：&nbsp;&nbsp;<input id="kind" style="width:165px;" >
 		<br><br>
 		&nbsp;&nbsp;兑换卡数量：&nbsp;&nbsp;<input id="value" style="width:50px" >
 		<br><br>
+		
 	</div>
 	<div style="width: 100%;text-align: right;padding-right:10px;margin-top:20px;margin-left:5px">
 			<button id="insert" class="btn btn-info" onclick="insert()" >提&nbsp;交</button>
@@ -45,14 +48,17 @@ function insert(){
 	
 	var cname = $("#cname").val();
 	var pname = $("#pname").val();
+	var num = $("#num").val();
 	var value = $("#value").val();
 	var kind =  $("#kind").val();
+	
+	
 	
 	$.ajax({
 		type : "POST",
 		url : "${pageContext.request.contextPath}/insertPresent",
 		dataType:'text',
-		data : {info: JSON.stringify({cname:cname,pname:pname,value:value,kind:kind})},
+		data : {info: JSON.stringify({cname:cname,pname:pname,num:num,value:value,kind:kind})},
 		success : function(d){
 			alert("添加成功！");
 			window.location.href = "./presentMessage";
